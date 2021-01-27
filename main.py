@@ -41,11 +41,17 @@ for row in c.fetchall():
     print(row)
 
 #  レコード（項目）の削除。DELETEの実行。
-c.execute('DELETE FROM articles WHERE id=?', (1, ))
-c.execute('DELETE FROM articles WHERE id=?', (3, ))
+#c.execute('DELETE FROM articles WHERE id=?', (1, ))
+#c.execute('DELETE FROM articles WHERE id=?', (3, ))
 
 # コミット
 conn.commit()
+
+#  fetchallで結果リストを取得する
+print("変更後")
+c.execute('SELECT * FROM articles')
+for row in c.fetchall():
+    print(row)
 
 # コネクションをクローズする
 conn.close()
